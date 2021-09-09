@@ -10,14 +10,13 @@ public class Test_2439 {
         int n = Integer.parseInt(br.readLine());
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < n; i++){
-            sb.append("*");
+            sb.append(" ");
         }
 
-        // !수정해야할 부분 : 오른쪽 공백 불필요
         for(int i = 1; i <= n; i++){
             int idx =  n - i;
+            sb.setCharAt(idx, '*');
             System.out.println(sb.toString());
-            sb.setCharAt(idx, ' ');
         }
     }
 }
