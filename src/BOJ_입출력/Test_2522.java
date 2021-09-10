@@ -1,25 +1,28 @@
-package Backjoon;
+package BOJ_입출력;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Test_10991 {
+public class Test_2522 {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+
         int n = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
         int k = 1;
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < 2 * n - 1; i++){
             for(int j = 0; j < n - k; j++){
                 sb.append(" ");
             }
-            for(int j = 1; j < 2 * k; j++){
-                if(j%2 == 0) sb.append(" ");
-                else sb.append("*");
+            for(int j = 0; j < k; j++){
+                sb.append("*");
             }
             sb.append("\n");
-            k++;
+
+            if(i < n - 1) k++;
+            else k--;
         }
+
         System.out.println(sb.toString());
     }
 }
