@@ -20,7 +20,7 @@ public class Test_10844 {
             result += recur(n, i);
         }
 
-        System.out.println(result);
+        System.out.println(result % 1000000000);
     }
 
     static long recur(int digit, int val){  // digit 자릿수 _ _ _ _ , val 자릿값(0~9)
@@ -31,11 +31,11 @@ public class Test_10844 {
 
         if(dp[digit][val] == null){ // null 체크하기 위해서 자료형을 long이 아니라 Long형을 사용
             if(val == 0){
-                dp[digit][val] = recur(digit - 1, 1);
+                dp[digit][val] = recur(digit - 1, 1) % 1000000000;
             }else if(val == 9){
-                dp[digit][val] = recur(digit - 1, 8);
+                dp[digit][val] = recur(digit - 1, 8) % 1000000000;
             }else{
-                dp[digit][val] = recur(digit - 1, val - 1) + recur(digit - 1, val + 1);
+                dp[digit][val] = (recur(digit - 1, val - 1) + recur(digit - 1, val + 1)) % 1000000000;
             }
         }
 
